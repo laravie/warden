@@ -11,7 +11,7 @@ class WardenServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('orchestra.warden', function ($app) {
+        $this->app->singleton('laravie.warden', function ($app) {
             $driver = $app->make('orchestra.notifier')->driver();
 
             return (new Factory())->setup($driver);
@@ -27,7 +27,7 @@ class WardenServiceProvider extends ServiceProvider
     {
         $path = realpath(__DIR__.'/../resources');
 
-        $this->addConfigComponent('orchestra/warden', 'orchestra/warden', $path.'/config');
+        $this->addConfigComponent('laravie/warden', 'laravie/warden', "{$path}/config");
 
         $this->registerObserver();
     }
@@ -40,11 +40,11 @@ class WardenServiceProvider extends ServiceProvider
     protected function registerObserver()
     {
         $config = $this->app['config'];
-        $model  = $config->get('orchestra/warden::model', $config->get('auth.model'));
+        $model  = $config->get('laravie/warden::model', $config->get('auth.model'));
 
         $observer = new UserObserver(
-            $this->app['orchestra/warden'],
-            $config->get('orchestra/warden', [])
+            $this->app->make('laravie.warden'),
+            $config->get('laravie/warden', [])
         );
 
         forward_static_call([$model, 'observe'], $observer);
