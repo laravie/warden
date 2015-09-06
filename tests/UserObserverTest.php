@@ -1,7 +1,7 @@
-<?php namespace Orchestra\Warden\TestCase;
+<?php namespace Laravie\Warden\TestCase;
 
 use Mockery as m;
-use Orchestra\Warden\UserObserver;
+use Laravie\Warden\UserObserver;
 
 class UserObserverTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,14 +14,14 @@ class UserObserverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Orchestra\Warden\UserObserver::updating() method.
+     * Test Laravie\Warden\UserObserver::updating() method.
      *
      * @test
      */
     public function testUpdatingMethod()
     {
         $recipient = m::type('\Orchestra\Contracts\Notification\Recipient');
-        $factory = m::mock('\Orchestra\Warden\Factory');
+        $factory = m::mock('\Laravie\Warden\Factory');
         $model = m::mock('\Orchestra\Model\User');
 
         $config = ['watchlist' => 'email'];

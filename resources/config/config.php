@@ -11,7 +11,7 @@ return [
     |
     */
 
-   'email' => 'orchestra/warden::email.notification',
+   'email' => 'laravie/warden::email.notification',
 
     /*
     |----------------------------------------------------------------------

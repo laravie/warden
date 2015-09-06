@@ -1,4 +1,4 @@
-<?php namespace Orchestra\Warden;
+<?php namespace Laravie\Warden;
 
 use Orchestra\Support\Providers\ServiceProvider;
 
@@ -12,7 +12,7 @@ class WardenServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('orchestra.warden', function ($app) {
-            $driver = $app['orchestra.notifier']->driver();
+            $driver = $app->make('orchestra.notifier')->driver();
 
             return (new Factory())->setup($driver);
         });

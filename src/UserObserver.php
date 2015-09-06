@@ -1,4 +1,4 @@
-<?php namespace Orchestra\Warden;
+<?php namespace Laravie\Warden;
 
 use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;

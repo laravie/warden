@@ -1,7 +1,7 @@
-<?php namespace Orchestra\Warden\TestCase;
+<?php namespace Laravie\Warden\TestCase;
 
 use Mockery as m;
-use Orchestra\Warden\Factory;
+use Laravie\Warden\Factory;
 
 class FactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,7 +14,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Orchestra\Warden\Factory::notify() method.
+     * Test Laravie\Warden\Factory::notify() method.
      *
      * @test
      */
@@ -41,7 +41,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Orchestra\Warden\Factory::notify() method.
+     * Test Laravie\Warden\Factory::notify() method.
      *
      * @test
      */
@@ -66,7 +66,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Orchestra\Warden\Factory::notify() method throws an exception.
+     * Test Laravie\Warden\Factory::notify() method throws an exception.
      *
      * @expectedException \RuntimeException
      * @expectedExceptionMessage Mailer need to be an instance of Orchestra\Contracts\Notification\Notification.
@@ -86,8 +86,8 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Orchestra\Warden\Factory::unguard() and
-     * Orchestra\Warden\Factory::reguard() method.
+     * Test Laravie\Warden\Factory::unguard() and
+     * Laravie\Warden\Factory::reguard() method.
      *
      * @test
      */

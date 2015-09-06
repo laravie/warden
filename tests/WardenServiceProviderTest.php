@@ -1,8 +1,8 @@
-<?php namespace Orchestra\Warden\TestCase;
+<?php namespace Laravie\Warden\TestCase;
 
 use Mockery as m;
 use Illuminate\Container\Container;
-use Orchestra\Warden\WardenServiceProvider;
+use Laravie\Warden\WardenServiceProvider;
 
 class WardenServiceProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +24,7 @@ class WardenServiceProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Orchestra\Warden\WardenServiceProvider::register() method.
+     * Test Laravie\Warden\WardenServiceProvider::register() method.
      *
      * @test
      */
@@ -47,7 +47,7 @@ class WardenServiceProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Orchestra\Warden\WardenServiceProvider::boot() method.
+     * Test Laravie\Warden\WardenServiceProvider::boot() method.
      *
      * @test
      */
@@ -58,13 +58,13 @@ class WardenServiceProviderTest extends \PHPUnit_Framework_TestCase
 
         $app['config'] = $config = m::mock('\Illuminate\Contracts\Config\Repository');
         $app['path'] = "/var";
-        $app['orchestra/warden'] = m::mock('\Orchestra\Warden\Factory')->makePartial();
+        $app['orchestra/warden'] = m::mock('\Laravie\Warden\Factory')->makePartial();
 
         $config->shouldReceive('get')->once()
-                ->with('orchestra/warden::model', '\Orchestra\Warden\TestCase\StubUser')
-                ->andReturn('\Orchestra\Warden\TestCase\StubUser')
+                ->with('orchestra/warden::model', '\Laravie\Warden\TestCase\StubUser')
+                ->andReturn('\Laravie\Warden\TestCase\StubUser')
             ->shouldReceive('get')->once()
-                ->with('auth.model')->andReturn('\Orchestra\Warden\TestCase\StubUser')
+                ->with('auth.model')->andReturn('\Laravie\Warden\TestCase\StubUser')
             ->shouldReceive('get')->once()
                 ->with('orchestra/warden', [])
                 ->andReturn(['watchlist' => ['email']]);
@@ -74,7 +74,7 @@ class WardenServiceProviderTest extends \PHPUnit_Framework_TestCase
         $stub = new WardenServiceProvider($app);
         $stub->boot();
 
-        $this->assertInstanceOf('\Orchestra\Warden\UserObserver', $_SERVER['orchestra.warden.observer.user']);
+        $this->assertInstanceOf('\Laravie\Warden\UserObserver', $_SERVER['orchestra.warden.observer.user']);
     }
 }
 

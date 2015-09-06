@@ -12,7 +12,7 @@
 >
 
     <testsuites>
-        <testsuite name="Orchestra\Warden Test Suite">
+        <testsuite name="Laravie\Warden Test Suite">
             <directory suffix="Test.php">./tests/</directory>
         </testsuite>
     </testsuites>

@@ -1,4 +1,4 @@
-<?php namespace Orchestra\Warden;
+<?php namespace Laravie\Warden;
 
 use RuntimeException;
 use Orchestra\Notifier\Message;
